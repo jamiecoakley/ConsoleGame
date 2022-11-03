@@ -3,8 +3,8 @@ public class Suspect1 : Suspect {
     {
         Name = "";
         Age = 30;
-        Occupation = "";
-        Relationship = "Ex-wife";
+        Occupation = "Homemaker";
+        Relationship = "Wife";
         CriminalHistory = false;
         IsGuilty = true;
     }

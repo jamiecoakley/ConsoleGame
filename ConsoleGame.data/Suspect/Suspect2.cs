@@ -4,8 +4,8 @@ public class Suspect2 : Suspect {
         Name = "";
         Age = 30;
         Occupation = "";
-        Relationship = "Disgruntled co-worker";
-        CriminalHistory = true;
+        Relationship = "Co-worker";
+        CriminalHistory = false;
         IsGuilty = false;
     }
 }
