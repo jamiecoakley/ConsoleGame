@@ -1,4 +1,4 @@
-public abstract class Victim
+public class Victim
 {
     public Victim()
     {

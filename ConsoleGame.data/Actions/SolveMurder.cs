@@ -1,12 +1,16 @@
-public class RunBackgroundCheck
-{
-    public void background()
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+    public class SolveMurder
+    {
+        public void solveMurder()
     {
 
         Suspect1 suspect1 = new Suspect1();
         Suspect2 suspect2 = new Suspect2();
         Suspect3 suspect3 = new Suspect3();
-        Victim victim = new Victim();
 
 
     Console.Clear();
@@ -15,15 +19,13 @@ public class RunBackgroundCheck
         {
             System.Console.WriteLine($"{suspect1.Name}  {suspect1.Age}  {suspect1.Occupation}   {suspect1.Relationship}\n\n" +
                             $"{suspect2.Name}   {suspect2.Age}  {suspect2.Occupation}   {suspect2.Relationship}\n\n" +
-                            $"{suspect3.Name}   {suspect3.Age}  {suspect3.Occupation}   {suspect3.Relationship}\n\n" +
-                            $"{victim.Name}   {victim.Age}  {victim.Occupation}   {victim.CauseOfDeath}\n\n");
+                            $"{suspect3.Name}   {suspect3.Age}  {suspect3.Occupation}   {suspect3.Relationship}\n\n");
             Console.WriteLine(
-            "------------Options-----------\n" +
-            "1. Run Background Check on Suspect 1\n" +
-            "2. Run Background Check on Suspect 2\n" +
-            "3. Run Background Check on Suspect 3\n" +
-            "4. Run Background Check on Victim\n" +
-            "5. Solve the Murder!\n" +
+            "----------------Options----------\n" +
+            "1. Suspect 1 is Guilty!\n" +
+            "2. Suspect 2 is Guilty!\n" +
+            "3. Suspect 3 is Guilty!\n" +
+            "4. No one did it, he died of natural causes...\n" +
             "0. Return to previous menu"
             );
         
@@ -41,10 +43,6 @@ public class RunBackgroundCheck
                 break;
             case "4":
                 //
-                break;
-            case "5":
-                //
-                break;
             case "0":
                 return;
             default:
@@ -52,7 +50,6 @@ public class RunBackgroundCheck
                 Program.PauseAndWaitForKeypress();
                 break;
         }
-        
         }
     }   
-}
+    }
