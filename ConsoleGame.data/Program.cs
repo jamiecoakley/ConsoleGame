@@ -3,6 +3,54 @@
 public static void Main()
 {
 
+Suspect suspect1 = new Suspect("WifeName", 30, "Homemaker", "Wife", false, true, new List<string>{
+    "At home seething, he went out to the bar again!", 
+    "He’s a good-for-nothing scoundrel who goes out to the bar too much! There’s no way he’s not cheating on me, gone until all hours of the night.",
+    "Nope, wasn’t there.",
+    "Nope, wasn’t there."
+}, 
+null);
+Suspect suspect2 = new Suspect("CoWorkerName", 30, "Engineer", "Co-Worker", false, false, new List<string>{
+    "At home seething, he went out to the bar again!", 
+    "He’s a good-for-nothing scoundrel who goes out to the bar too much! There’s no way he’s not cheating on me, gone until all hours of the night.",
+    "Nope, wasn’t there.",
+    "Nope, wasn’t there."
+}, null);
+Suspect suspect3 = new Suspect("Rusty Shackelford", 30, "Exterminator", "Town crazy", true, false, new List<string>{
+    "At home seething, he went out to the bar again!", 
+    "He’s a good-for-nothing scoundrel who goes out to the bar too much! There’s no way he’s not cheating on me, gone until all hours of the night.",
+    "Nope, wasn’t there.",
+    "Nope, wasn’t there."
+}, new List<Crime>{
+    new Crime(
+        "Assault",
+        "Felony: Guilty",
+        new DateTime(2021,10,24),
+        "Town",
+        "State"
+    ),
+    new Crime(
+        "Public Nuisance",
+        "Misdemeanor: Guilty",
+        new DateTime(2021,10,04),
+        "Town",
+        "State"
+    ),
+    new Crime(
+        "Assault",
+        "Felony: Guilty",
+        new DateTime(2021,02,24),
+        "Town",
+        "State"
+    ),
+    new Crime(
+        "Public Intoxication",
+        "Misdemeanor: Guilty",
+        new DateTime(2021,02,04),
+        "Town",
+        "State"
+    ),
+});
 SuspectInterview suspectInterview = new SuspectInterview();
 WitnessInterview witnessInterview = new WitnessInterview();
 RunBackgroundCheck runBackgroundCheck = new RunBackgroundCheck();
@@ -10,7 +58,7 @@ Forensics forensics = new Forensics();
 Warrants warrants = new Warrants();
 Unlawful unlawful = new Unlawful();
 SolveMurder solveMurder = new SolveMurder();
-
+List<Suspect> suspects = new List<Suspect>(){suspect1, suspect2, suspect3};
 Console.Clear();
 System.Console.WriteLine("----Murder Solve---\n");
 System.Console.WriteLine("You are a small-town detective who’s been assigned to a murder scene: the local bar, ___________ in rural _________, ___. A long-time local resident, ___________, had just finished a beer, when he suddenly fell off of his stool. Fellow patrons rushed to help him back up thinking he’d lost his balance, only to find that he was dead! Detective Player’s job is to find out who did it, and fast! \n\n\n");
@@ -29,10 +77,10 @@ bool continueToRun = true;
         "1. Suspects\n" +
         "2. Witnesses\n" +
         "3. Background Check(s)\n" +
-        "4. Forensic Options\n" +
-        "5. Try for Warrant(s)\n" +
-        "6. Unlawful Tactics\n" +
-        "7. Solve the Murder!\n" +
+        //"4. Forensic Options\n" +
+        "4. Try for Warrant(s)\n" +
+        "5. Unlawful Tactics\n" +
+        "6. Solve the Murder!\n" +
         "0. Exit"
         );
 
@@ -40,25 +88,22 @@ bool continueToRun = true;
         switch (selection)
         {
             case "1":
-                suspectInterview.suspects();
+                suspectInterview.suspects(suspects);
                 break;
             case "2":
                 witnessInterview.witnesses();
                 break;
             case "3":
-                runBackgroundCheck.background();
+                runBackgroundCheck.background(suspects);
                 break;
             case "4":
-                forensics.forensics();
+                warrants.warrants(suspects);
                 break;
             case "5":
-                warrants.warrants();
+                unlawful.unlawful(suspects);
                 break;
             case "6":
-                unlawful.unlawful();
-                break;
-            case "7":
-                solveMurder.solveMurder();
+                solveMurder.solveMurder(suspects);
                 break;
             case "0":
                 continueToRun = false;
