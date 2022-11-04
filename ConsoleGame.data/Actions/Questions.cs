@@ -10,16 +10,15 @@ public class Questions
         }
     }
 
-
-
     private static void SuspectResponse(string question, List<string> answers)
     {
         System.Console.WriteLine(question);
         System.Console.WriteLine("Make your choice!\n" + 
-                                "1.\n " +
-                                "2.\n " +
-                                "3.\n " +
-                                "4.\n ");
+                                "1. Tell me about your alibi for the night of the crime.\n " +
+                                "2. Do you have any grudges against (victim)?\n " +
+                                "3. Did you notice anything suspicious around the time that (victim) fell off of his stool?\n " +
+                                "4. Did you notice any weird interactions (victim) had with the other suspects?\n ");
+                                
         string selection = Console.ReadLine() ?? "";
         switch (selection)
         {
